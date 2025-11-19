@@ -27,13 +27,9 @@ This work serves as a foundation for understanding Graph Neural Networks before 
             - [C. Renormalization Trick](#c-renormalization-trick)
         - [4. Layer-wise Propagation](#4-layer-wise-propagation-in-gcn)
         - [5. Two-Layer Semi-Supervised GCN](#5-two-layer-semi-supervised-gcn)
-5. [Implementation](#implementation)
-6. [Experiments](#experiments)
-7. [Visualizations](#visualizations)
-8. [References](#references)
-9. [License](#license)
 
----
+
+
 
 ## Introduction
 
@@ -42,7 +38,7 @@ They leverage **both node features and graph structure** for semi-supervised lea
 
 GCNs have become foundational in **graph representation learning** and are a prerequisite to advanced methods like **graph self-supervised learning (SSL)**.
 
----
+
 ## Theoretical Background
 
 ### 1. Spectral Convolution on Graphs
