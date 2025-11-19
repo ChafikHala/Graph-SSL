@@ -1,1 +1,1 @@
-### Graph Self-Supervised Learning
+# Graph Self-Supervised Learning
