@@ -1,6 +1,6 @@
 # Graph Convolutional Networks (GCNs) Exploration
 
-![GCN Banner](docs/images/gcn_banner.png)
+![](/images/gcn_workflow.png)
 
 This repository contains a structured exploration of **Graph Convolutional Networks (GCNs)**.  
 It covers the **theoretical foundations**, **implementations**, **experiments on benchmark datasets**, and **visualizations of graph learning dynamics**.  
