@@ -3,3 +3,4 @@ images/
 baselines/
 __pycache__/
 cora/
+citeseer/
