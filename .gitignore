@@ -1,0 +1,14 @@
+# Dataset downloads (root-level only)
+data/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# venv
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
