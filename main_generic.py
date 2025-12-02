@@ -17,31 +17,54 @@ from data_loader import get_dataset
 # ==========================================
 # DATASET-SPECIFIC HYPERPARAMETERS
 # ==========================================
+
 CONFIGS = {
+    # --- 1. Classiques Homophiles ---
     'cora': {
         'lr': 0.0005, 'hidden': 512, 'out': 256, 'epochs': 200, 
         'theta': 0.6, 'delta': 2, 'temp': 0.2, 'negs': 256,
         'drop_edge': 0.25, 'mask_feat': 0.25
     },
     'citeseer': {
-        # Tuned for sparse graphs: slower learning, softer augs
-        'lr': 0.0001, 'hidden': 512, 'out': 256, 'epochs': 200, 
+        'lr': 0.0001, 'hidden': 512, 'out': 256, 'epochs': 300, 
         'theta': 0.75, 'delta': 2, 'temp': 0.5, 'negs': 128,
         'drop_edge': 0.1, 'mask_feat': 0.1
     },
+    'amazon-photo': {
+        'lr': 0.0005, 'hidden': 512, 'out': 256, 'epochs': 200,
+        'theta': 0.7, 'delta': 2, 'temp': 0.2, 'negs': 512, # Gros graphe (7k noeuds) -> Plus de négatifs
+        'drop_edge': 0.3, 'mask_feat': 0.3
+    },
+
+    # --- 2. Hétérophiles Moyens/Denses ---
+    'actor': {
+        'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 400,
+        'theta': 0.5, 'delta': 2, 'temp': 0.5, 'negs': 256,
+        'drop_edge': 0.4, 'mask_feat': 0.1
+    },
+    'squirrel': {
+        'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 500, # Besoin de capacity
+        'theta': 0.4, 'delta': 2, 'temp': 0.5, 'negs': 512, 
+        'drop_edge': 0.5, 'mask_feat': 0.2 # Très dense -> on casse beaucoup d'arêtes
+    },
+    'chameleon': {
+        'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 500,
+        'theta': 0.4, 'delta': 2, 'temp': 0.5, 'negs': 512,
+        'drop_edge': 0.5, 'mask_feat': 0.2
+    },
+
+    # --- 3. Hétérophiles Petits ---
     'texas': { 
-        # Heterophilic & Small: aggressive edge drop to break bad links
-        'lr': 0.01, 'hidden': 64, 'out': 32, 'epochs': 500, 
+        'lr': 0.01, 'hidden': 64, 'out': 32, 'epochs': 400, 
         'theta': 0.5, 'delta': 2, 'temp': 0.5, 'negs': 32,
         'drop_edge': 0.4, 'mask_feat': 0.1
     },
     'wisconsin': { 
-        'lr': 0.01, 'hidden': 64, 'out': 32, 'epochs': 500, 
+        'lr': 0.01, 'hidden': 64, 'out': 32, 'epochs': 400, 
         'theta': 0.5, 'delta': 2, 'temp': 0.5, 'negs': 32,
         'drop_edge': 0.4, 'mask_feat': 0.1
     }
 }
-
 def train_and_evaluate(dataset_name):
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"\n=== Launching on {dataset_name.upper()} ===")
