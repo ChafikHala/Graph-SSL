@@ -4,3 +4,5 @@ baselines/
 __pycache__/
 cora/
 citeseer/
+WLHN.py
+test_wlhn.py
