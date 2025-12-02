@@ -1,7 +1,7 @@
 # main_debug.py
 from __future__ import annotations
 
-from wl_gcl.src.data.dataset import load_dataset, get_splits
+from wl_gcl.src.data_loader.dataset import load_dataset, get_splits
 
 
 DATASETS = ["Cora", "Citeseer", "Pubmed", "Actor", "Squirrel"]
