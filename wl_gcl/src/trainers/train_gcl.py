@@ -8,7 +8,6 @@ import numpy as np
 import random
 import sys
 
-# --- UPDATED IMPORTS FOR NEW STRUCTURE ---
 from wl_gcl.src.utils.wl_core import WLHierarchyEngine
 from wl_gcl.src.models.gin import GINEncoder
 from wl_gcl.src.augmentations.graph_augmentor import GraphAugmentor
@@ -71,7 +70,6 @@ CONFIGS = {
 def train_model(dataset_name):
     """
     Main training function logic.
-    Renamed from train_and_evaluate to be more descriptive.
     """
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"\n=== Launching on {dataset_name.upper()} ===")
@@ -80,8 +78,6 @@ def train_model(dataset_name):
     # Fallback to Cora config if dataset specific config is missing
     cfg = CONFIGS.get(dataset_name.lower(), CONFIGS['cora']) 
     
-    # --- UPDATED LOADING LOGIC ---
-    # Using the new professional wrapper
     node_dataset = load_dataset(dataset_name)
     data = node_dataset.data
     num_classes = node_dataset.num_classes
