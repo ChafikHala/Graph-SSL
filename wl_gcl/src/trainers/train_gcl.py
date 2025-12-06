@@ -1,3 +1,4 @@
+# wl_gcl/src/trainers/train_gcl.py
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -5,14 +6,15 @@ import argparse
 import copy
 import numpy as np
 import random
+import sys
 
-# Import your modules
-from wl import WLHierarchyEngine
-from gin_encoder import GINEncoder
-from graph_augmentor import GraphAugmentor
-from dual_view_miner import DualViewMiner
-from loss import ExtendedMoCHILoss
-from data_loader import get_dataset
+# --- UPDATED IMPORTS FOR NEW STRUCTURE ---
+from wl_gcl.src.utils.wl_core import WLHierarchyEngine
+from wl_gcl.src.models.gin import GINEncoder
+from wl_gcl.src.augmentations.graph_augmentor import GraphAugmentor
+from wl_gcl.src.contrastive.dual_view_miner import DualViewMiner
+from wl_gcl.src.contrastive.losses import ExtendedMoCHILoss
+from wl_gcl.src.data_loader.dataset import load_dataset, get_splits
 
 # ==========================================
 # DATASET-SPECIFIC HYPERPARAMETERS
@@ -32,7 +34,7 @@ CONFIGS = {
     },
     'amazon-photo': {
         'lr': 0.0005, 'hidden': 512, 'out': 256, 'epochs': 200,
-        'theta': 0.7, 'delta': 2, 'temp': 0.2, 'negs': 512, # Gros graphe (7k noeuds) -> Plus de négatifs
+        'theta': 0.7, 'delta': 2, 'temp': 0.2, 'negs': 512, 
         'drop_edge': 0.3, 'mask_feat': 0.3
     },
 
@@ -43,9 +45,9 @@ CONFIGS = {
         'drop_edge': 0.4, 'mask_feat': 0.1
     },
     'squirrel': {
-        'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 500, # Besoin de capacity
+        'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 500, 
         'theta': 0.4, 'delta': 2, 'temp': 0.5, 'negs': 512, 
-        'drop_edge': 0.5, 'mask_feat': 0.2 # Très dense -> on casse beaucoup d'arêtes
+        'drop_edge': 0.5, 'mask_feat': 0.2 
     },
     'chameleon': {
         'lr': 0.001, 'hidden': 256, 'out': 128, 'epochs': 500,
@@ -65,13 +67,25 @@ CONFIGS = {
         'drop_edge': 0.4, 'mask_feat': 0.1
     }
 }
-def train_and_evaluate(dataset_name):
+
+def train_model(dataset_name):
+    """
+    Main training function logic.
+    Renamed from train_and_evaluate to be more descriptive.
+    """
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"\n=== Launching on {dataset_name.upper()} ===")
     
     # 1. Load Config & Data
+    # Fallback to Cora config if dataset specific config is missing
     cfg = CONFIGS.get(dataset_name.lower(), CONFIGS['cora']) 
-    data, num_classes = get_dataset(dataset_name)
+    
+    # --- UPDATED LOADING LOGIC ---
+    # Using the new professional wrapper
+    node_dataset = load_dataset(dataset_name)
+    data = node_dataset.data
+    num_classes = node_dataset.num_classes
+    
     data = data.to(DEVICE)
     
     num_nodes = data.x.shape[0]
@@ -213,4 +227,4 @@ if __name__ == "__main__":
     parser.add_argument('--dataset', type=str, default='cora', help='cora, citeseer, texas, wisconsin')
     args = parser.parse_args()
     
-    train_and_evaluate(args.dataset)
+    train_model(args.dataset)

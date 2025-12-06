@@ -1,15 +1,76 @@
+from __future__ import annotations
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
+# ==========================================
+# Standard Losses
+# ==========================================
+
+def cosine_sim_matrix(z1: torch.Tensor, z2: torch.Tensor) -> torch.Tensor:
+    """
+    Compute pairwise cosine similarity between two embedding batches.
+    Args: z1, z2: (N, d)
+    Returns: sim: (N, N)
+    """
+    return torch.matmul(z1, z2.T)
+
+
+def info_nce_loss(z1: torch.Tensor, z2: torch.Tensor, temperature: float = 0.2) -> torch.Tensor:
+    """
+    Standard SimCLR/InfoNCE contrastive loss.
+    """
+    assert z1.shape == z2.shape
+    N = z1.size(0)
+
+    # Pairwise similarity
+    sim = cosine_sim_matrix(z1, z2)
+    sim = sim / temperature
+
+    # Positive similarities are on diagonal
+    pos_sim = torch.diag(sim)
+
+    # Denominator: sum over all columns
+    exp_sim = torch.exp(sim)
+    denom = exp_sim.sum(dim=1)
+
+    loss = -torch.log(torch.exp(pos_sim) / denom)
+    return loss.mean()
+
+
+def nt_xent_loss(z1: torch.Tensor, z2: torch.Tensor, temperature: float = 0.2) -> torch.Tensor:
+    """
+    NT-Xent contrastive loss (SimCLR / GraphCL standard).
+    """
+    N = z1.size(0)
+    z = torch.cat([z1, z2], dim=0)
+
+    sim = cosine_sim_matrix(z, z)
+    sim = sim / temperature
+
+    mask = torch.eye(2*N, device=z.device).bool()
+    sim.masked_fill_(mask, -9e15)
+
+    pos_idx = torch.arange(N, device=z.device)
+    pos_idx = torch.cat([pos_idx + N, pos_idx])
+
+    log_prob = torch.log_softmax(sim, dim=1)
+
+    loss = -log_prob[torch.arange(2*N), pos_idx]
+    return loss.mean()
+
+
+# ==========================================
+# MoCHi
+# ==========================================
 
 class ExtendedMoCHILoss(nn.Module):
     def __init__(self, temperature=0.1, num_negatives=128):
         """
         Extended InfoNCE Loss with MoCHi hard negative synthesis.
-        
         Args:
             temperature (float): Scaling factor for logits.
-            num_negatives (int): Number of synthetic negatives to generate (size of Q in MoCHi).
+            num_negatives (int): Number of synthetic negatives to generate.
         """
         super(ExtendedMoCHILoss, self).__init__()
         self.tau = temperature
@@ -18,106 +79,72 @@ class ExtendedMoCHILoss(nn.Module):
     def forward(self, anchor, positives, hard_negatives):
         """
         Computes the loss for a SINGLE anchor node.
-        
         Args:
-            anchor (Tensor): Embedding of the anchor node [1, D].
-            positives (Tensor): Embeddings of all positive nodes (view2 match + intersection) [N_pos, D].
-            hard_negatives (Tensor): Embeddings of hard negative nodes found by DualViewMiner [N_hard, D].
+            anchor (Tensor): [1, D]
+            positives (Tensor): [N_pos, D]
+            hard_negatives (Tensor): [N_hard, D]
         """
         # 1. Normalize everything
         anchor = F.normalize(anchor, dim=1)
         positives = F.normalize(positives, dim=1)
         
-        # If no hard negatives exist, fall back to standard negatives (randomly sampled from batch if needed)
-        # But here we assume hard_negatives are passed.
+        # If no hard negatives exist, fall back to standard negatives
         if hard_negatives.size(0) > 0:
             hard_negatives = F.normalize(hard_negatives, dim=1)
             
-            # 2. MoCHi Synthesis (Generating Synthetic Hard Negatives)
-            # Create "Harder" and "Hardest" negatives by mixing embeddings
+            # 2. MoCHi Synthesis
             synthetic_negs = self.mochi_generation(anchor, hard_negatives)
-            
-            # Combine real hard negatives and synthetic ones
-            # Total negatives = {k-} U {h-} U {h'-}
             all_negatives = torch.cat([hard_negatives, synthetic_negs], dim=0)
         else:
-            # Fallback if intersection logic found no hard negatives for this node
-            # Use random noise or just skip synthesis (implementation choice)
             all_negatives = hard_negatives
 
         # 3. Calculate Logits
         # Positive logits: s(q, k+) / tau
-        # Shape: [N_pos]
         pos_logits = torch.matmul(positives, anchor.t()).squeeze(-1) / self.tau
         
         # Negative logits: s(q, negs) / tau
-        # Shape: [Total_Negs]
         if all_negatives.size(0) > 0:
             neg_logits = torch.matmul(all_negatives, anchor.t()).squeeze(-1) / self.tau
         else:
-            # Theoretical edge case: no negatives at all (unlikely in batch training)
             neg_logits = torch.tensor([-1e9]).to(anchor.device)
 
         # 4. Compute Extended InfoNCE
-        # Formula: - log [ sum(exp(pos)) / (sum(exp(pos)) + sum(exp(neg))) ]
-        # Since we have multiple positives, we average the log-prob over them.
-        
-        # LogSumExp of negatives (denominator part 2)
-        # MoCHi(q) in equation (4) corresponds to sum(exp(neg_logits))
         neg_sum_exp = torch.sum(torch.exp(neg_logits))
         
         loss = 0
         n_pos = pos_logits.size(0)
         
         if n_pos > 0:
-            # We iterate because the formula sums over {k+}
             for i in range(n_pos):
                 pos_val = torch.exp(pos_logits[i])
-                # L = - log ( exp(pos_i) / (exp(pos_i) + sum_exp(negs)) )
                 denom = pos_val + neg_sum_exp
-                loss += -torch.log(pos_val / (denom + 1e-8)) # epsilon for stability
+                loss += -torch.log(pos_val / (denom + 1e-8))
             
-            # Average over number of positives
             loss = loss / n_pos
             
         return loss
 
     def mochi_generation(self, anchor, hard_negs):
-        """
-        Synthesizes harder negatives by interpolating features.
-        MoCHi Logic:
-        1. {h'}: Mix of Hard Negatives + Anchor (Hardest)
-        2. {h}: Mix of Hard Negatives + Hard Negatives (Harder)
-        """
+        """Synthesizes harder negatives by interpolating features."""
         N = hard_negs.size(0)
-        if N < 2: return hard_negs # Not enough to mix
+        if N < 2: return hard_negs 
         
-        # How many synthetic samples to make? Let's aim for self.num_negatives
-        # We split budget 50/50 between mixing with anchor and mixing with other negs
         num_mix_anchor = self.num_negatives // 2
         num_mix_negs = self.num_negatives - num_mix_anchor
         
-        # --- Type 1: Hardest {h'-} (Mix Anchor + Negs) ---
-        # Select random hard negs to mix with anchor
+        # Type 1: Hardest {h'-} (Mix Anchor + Negs)
         indices = torch.randint(0, N, (num_mix_anchor,)).to(anchor.device)
         selected_negs = hard_negs[indices]
-        
-        # Mixing coefficient alpha ~ U(0.1, 0.5) to stay "negative" but get closer to anchor
         alpha = torch.rand(num_mix_anchor, 1).to(anchor.device) * 0.4 + 0.1 
-        
         hardest_negs = (1 - alpha) * selected_negs + alpha * anchor
-        hardest_negs = F.normalize(hardest_negs, dim=1) # Re-normalize
+        hardest_negs = F.normalize(hardest_negs, dim=1)
         
-        # --- Type 2: Harder {h-} (Mix Negs + Negs) ---
-        # Select pairs of random hard negs
+        # Type 2: Harder {h-} (Mix Negs + Negs)
         idx_a = torch.randint(0, N, (num_mix_negs,)).to(anchor.device)
         idx_b = torch.randint(0, N, (num_mix_negs,)).to(anchor.device)
-        
         negs_a = hard_negs[idx_a]
         negs_b = hard_negs[idx_b]
-        
-        beta = torch.rand(num_mix_negs, 1).to(anchor.device) * 0.4 + 0.3 # Mix between 0.3 and 0.7
-        
+        beta = torch.rand(num_mix_negs, 1).to(anchor.device) * 0.4 + 0.3 
         harder_negs = beta * negs_a + (1 - beta) * negs_b
         harder_negs = F.normalize(harder_negs, dim=1)
         

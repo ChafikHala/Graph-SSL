@@ -1,5 +1,7 @@
 import torch
 import torch.nn.functional as F
+import sys
+import os
 
 class DualViewMiner:
     def __init__(self, wl_engine, nodes_list, theta=0.8, delta=2):
@@ -92,41 +94,36 @@ class DualViewMiner:
 
 
 if __name__ == "__main__":
-    # --- 1. SETUP (Comme avant) ---
+    sys.path.append(os.getcwd())     
+    try:
+        from wl_gcl.src.utils.wl_core import WLHierarchyEngine
+    except ImportError:
+        print("Could not import WLHierarchyEngine. Make sure you run this from the project root.")
+        sys.exit(1)
+
+    # --- 1. SETUP ---
     nodes = [1, 2, 3, 4, 5, 6, 7, 8]
     edges = [(1, 2), (1, 8), (2, 3), (8, 3), (3, 4), (3, 7), (4, 5), (7, 6), (5, 6)]
     
     # WL Engine
-    from wl import WLHierarchyEngine # Supposons que c'est dans un fichier wl.py
     wl_engine = WLHierarchyEngine(nodes, edges)
     wl_engine.build_wl_tree(force_convergence=True)
     
-    # GIN Encoder
-    # (On reprend le code précédent, supposons qu'il est importé)
+    # GIN Encoder simulation
     x = torch.ones((8, 1), dtype=torch.float)
-    # ... mapping edges ...
-    # Supposons qu'on a déjà les embeddings 'h'
-    # Pour simuler, je crée des embeddings aléatoires
     torch.manual_seed(42)
     embeddings = torch.randn(8, 16) 
     
-    # --- 2. LE MINER (Ce qu'on vient de faire) ---
-    # Theta = 0.5 (Seuil cosinus généreux pour l'exemple)
-    # Delta = 2 (On cherche les frères WL)
+    # --- 2. THE MINER ---
     miner = DualViewMiner(wl_engine, nodes, theta=0.0, delta=2)
     
     # --- 3. EXECUTION ---
     print("\n--- Mining Step ---")
     positives, hard_negatives = miner.mine_candidates(embeddings)
     
-    # Analyse pour le Noeud 5 (Rappel: Voisins WL à delta=2 sont [1, 6])
-    target_idx = 4 # Index du noeud 5 dans la liste [0..7]
+    target_idx = 4 # Index of node 5
     target_id = 5
     
-    print(f"Analyse pour le Noeud {target_id}:")
-    print(f"  > Voisins WL (P_struct): {[nodes[i] for i in miner.get_structural_candidates()[target_idx]]}")
-    print(f"  > Voisins Cosine (P_feat): {[nodes[i] for i in miner.get_feature_candidates(embeddings)[target_idx]]}")
-    
-    print(f"  -----------------------------")
+    print(f"Analysis for Node {target_id}:")
     print(f"  > Intersection (Extended Positives): {[nodes[i] for i in positives[target_idx]]}")
     print(f"  > Hard Negatives (XOR): {[nodes[i] for i in hard_negatives[target_idx]]}")
