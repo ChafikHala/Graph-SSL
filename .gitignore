@@ -1,8 +1,13 @@
-data/
-images/
-baselines/
+# --- System & Python Artifacts ---
 __pycache__/
-cora/
-citeseer/
+*.pyc
+.venv/
+venv/
+.vscode/
+.idea/
+
+# --- Datasets---
+data/
+# --- Temporary/Old Files ---
 WLHN.py
 test_wlhn.py
