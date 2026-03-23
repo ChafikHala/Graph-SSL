@@ -61,6 +61,7 @@ class WLHierarchyConfig:
     # Loss weights (VERY important)
     lambda_hier: float = 1e-2
     lambda_nce: float = 1.0
+    lambda_kl: float = 1e-1
 
     # Contrastive
     temperature: float = 0.5

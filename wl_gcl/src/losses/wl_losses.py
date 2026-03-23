@@ -92,3 +92,60 @@ def wl_contrastive_loss(engine, z, level, temperature=0.5):
     loss = -torch.log((pos_sum + eps) / (pos_sum + neg_sum + eps))
 
     return loss.mean()
+
+
+def hierarchical_probabilistic_loss(engine, logits, level_targets, active_levels):
+    """
+    Implements Hierarchical Probabilistic Consistency Loss.
+    Enforces marginal agreement between predictions at level t and level t+1.
+    """
+    kl_loss = 0.0
+    # Ensure levels are processed in hierarchical order (top-down)
+    levels = sorted(active_levels)
+    
+    # Iterate through pairs of parent (t) and child (t_next) levels
+    for i in range(len(levels) - 1):
+        t = levels[i]
+        t_next = levels[i+1]
+        
+        # 1. Get predicted probabilities for the parent level (rho^(t))
+        p_t = F.softmax(logits[t], dim=-1)
+        
+        # 2. Get predicted probabilities for the child level (rho^(t+1))
+        p_next = F.softmax(logits[t_next], dim=-1)
+        
+        # Retrieve mapping dictionaries: cluster_id -> matrix_index
+        cid2idx_t = level_targets[t]["cid2idx"]
+        cid2idx_next = level_targets[t_next]["cid2idx"]
+        
+        device = p_t.device
+        num_classes_t = p_t.size(1)
+        num_classes_next = p_next.size(1)
+        
+        # 3. Construct the Adjacency/Membership matrix M [num_children, num_parents]
+        # M[i, j] = 1 if child cluster i belongs to parent cluster j
+        M = torch.zeros((num_classes_next, num_classes_t), device=device)
+        
+        for cid_next, idx_next in cid2idx_next.items():
+            # Find the parent ID for the current child ID using the engine's hierarchy
+            parent_cid = engine.parent.get(cid_next)
+            if parent_cid in cid2idx_t:
+                idx_t = cid2idx_t[parent_cid]
+                M[idx_next, idx_t] = 1.0
+                
+        # 4. Calculate the induced parent distribution (rho_tilde^(t))
+        # Summing the probabilities of children to reconstruct the parent's probability
+        p_tilde_t = torch.matmul(p_next, M)
+        
+        # Numerical stability: clamp values to avoid log(0) which results in NaN
+        eps = 1e-8
+        p_tilde_t = p_tilde_t.clamp(min=eps)
+        p_t = p_t.clamp(min=eps)
+        
+        # 5. KL Divergence: KL(Predicted_Parent || Induced_Parent_from_Children)
+        # In PyTorch, F.kl_div expects: input = log_probabilities, target = probabilities
+        loss_kl = F.kl_div(p_tilde_t.log(), p_t, reduction='batchmean')
+        
+        kl_loss += loss_kl
+    
+    return  kl_loss

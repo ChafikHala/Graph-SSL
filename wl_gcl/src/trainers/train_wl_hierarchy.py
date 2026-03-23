@@ -17,6 +17,7 @@ from wl_gcl.src.utils.wl_core import WLHierarchyEngine
 from wl_gcl.src.losses.wl_losses import (
     hierarchy_regularization,
     wl_contrastive_loss,
+    hierarchical_probabilistic_loss,
 )
 from wl_gcl.src.trainers.eval import evaluate_linear_probe
 
@@ -53,6 +54,7 @@ def train_wl_hierarchy(cfg) -> Dict[str, float]:
             level_targets[t] = {
                 "y": y.to(device),
                 "num_classes": C,
+                "cid2idx": cid2idx
             }
 
     sorted_levels = sorted(level_targets.keys())
@@ -98,6 +100,14 @@ def train_wl_hierarchy(cfg) -> Dict[str, float]:
         for t in active_levels:
             y_t = level_targets[t]["y"]
             loss_wl += F.cross_entropy(logits[t], y_t)
+        
+
+        # KL consistency loss
+        loss_kl = torch.tensor(0.0, device=device)
+        if len(active_levels) > 1:
+            loss_kl = hierarchical_probabilistic_loss(
+                engine, logits, level_targets, active_levels
+            )
 
         # Hierarchy regularization
         max_t = max(active_levels)
@@ -117,6 +127,7 @@ def train_wl_hierarchy(cfg) -> Dict[str, float]:
             loss_wl
             + cfg.lambda_hier * loss_hier
             + cfg.lambda_nce * loss_nce
+            + cfg.lambda_kl * loss_kl
         )
 
         loss.backward()
