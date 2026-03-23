@@ -17,6 +17,12 @@ source activate env_gcl
 cd $SLURM_SUBMIT_DIR
 
 # 3. Lancer ton code Python
-# Ici on appelle la méthode wl_hierarchy sur le dataset cora avec le modèle gin
-echo "Lancement de l'expérience..."
-python main.py --method wl_hierarchy --dataset cora --model gin
+echo "Start of search..."
+
+# Exhaustive grid search
+#python wl_gcl/src/utils/tune.py --trainer wl_hierarchy --dataset cora --search grid
+
+# Random search
+python wl_gcl/src/utils/tune.py --trainer wl_hierarchy --dataset cora --search random --n_trials 20
+
+echo "Search Ended"sbatch run_exp.sh

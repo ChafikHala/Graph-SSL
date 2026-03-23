@@ -17,17 +17,24 @@ def wl_classification_loss(logits, level_targets, active_levels):
 
 def hierarchy_regularization(engine, z, levels, nodes=None):
     """
-    WL centroid consistency regularization.
+    WL centroid consistency regularization (Vectorisée et optimisée via l'arbre WL).
     """
+    # 1. Gestion des nœuds (tous les nœuds par défaut)
     if nodes is None:
-        nodes = range(z.size(0))
+        nodes_len = z.size(0)
+        use_all_nodes = True
+    else:
+        nodes_set = set(nodes)
+        nodes_len = len(nodes_set)
+        use_all_nodes = False
+
+    if nodes_len == 0:
+        return torch.tensor(0.0, device=z.device)
 
     reg = torch.tensor(0.0, device=z.device)
+    centroid_by_level = {t: engine.compute_centroids(z, t) for t in levels}
 
-    centroid_by_level = {
-        t: engine.compute_centroids(z, t) for t in levels
-    }
-
+    # 2. Calcul des différences de centroïdes niveau par niveau
     for t in levels[1:]:
         t_prev = t - 1
         if t_prev not in centroid_by_level:
@@ -36,14 +43,37 @@ def hierarchy_regularization(engine, z, levels, nodes=None):
         cent_t = centroid_by_level[t]
         cent_prev = centroid_by_level[t_prev]
 
-        for v in nodes:
-            cid_t = engine.get_cluster_id(v, t)
-            cid_prev = engine.get_cluster_id(v, t_prev)
+        C_t_list = []
+        C_prev_list = []
+        weights = []
 
-            if cid_t in cent_t and cid_prev in cent_prev:
-                reg = reg + (cent_t[cid_t] - cent_prev[cid_prev]).pow(2).sum()
+        # Au lieu de boucler sur N noeuds, on boucle sur K clusters
+        for cid_t, c_t in cent_t.items():
+            cid_prev = engine.parent.get(cid_t) # On trouve direct le parent
+            
+            if cid_prev and cid_prev in cent_prev:
+                # Combien de nœuds sont impactés par cette différence ?
+                if use_all_nodes:
+                    count = len(engine.tree_members[cid_t])
+                else:
+                    count = sum(1 for v in engine.tree_members[cid_t] if v in nodes_set)
+                
+                if count > 0:
+                    C_t_list.append(c_t)
+                    C_prev_list.append(cent_prev[cid_prev])
+                    weights.append(count)
 
-    return reg / len(list(nodes))
+        # 3. Opérations tensorielles (Vectorisation)
+        if len(C_t_list) > 0:
+            C_t_tensor = torch.stack(C_t_list)         # Shape: [K, d]
+            C_prev_tensor = torch.stack(C_prev_list)   # Shape: [K, d]
+            W_tensor = torch.tensor(weights, device=z.device, dtype=z.dtype).unsqueeze(1) # [K, 1]
+            
+            # Différence au carré pondérée par le nombre de nœuds dans chaque cluster
+            diff_sq = (C_t_tensor - C_prev_tensor).pow(2) # [K, d]
+            reg = reg + (diff_sq * W_tensor).sum()
+
+    return reg / nodes_len
 
 def wl_contrastive_loss(engine, z, level, temperature=0.5):
     """
@@ -54,6 +84,7 @@ def wl_contrastive_loss(engine, z, level, temperature=0.5):
 
     device = z.device
     N = z.size(0)
+    z = F.normalize(z, p=2, dim=1)
 
     # ------------------------------------------------------------
     # 1) Similarity matrix (N x N)

@@ -97,10 +97,14 @@ def search_space(trainer: str, dataset: str) -> Dict[str, List[Any]]:
         return {
             **common,
             "num_negatives": [64, 128, 256, 512],
+
+            # Hyperparams specific to the curriculum learning
             "warmup": [20, 40, 80],
             "wl_max_iter": [5, 10],
-            "lambda_hier": [1e-3, 1e-2, 1e-1],
-            "lambda_nce": [0.5, 1.0, 2.0],
+
+            # Loss weights
+            "lambda_hier": [1e-4, 5e-4, 1e-3, 1e-2, 5e-2, 1e-1],
+            "lambda_nce": [ 0.5, 1.0, 5.0, 10.0],
         }
 
     raise KeyError(f"Unknown trainer '{trainer}'")
