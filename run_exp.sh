@@ -11,7 +11,7 @@
 
 # 1. Charger les modules et l'environnement
 module load anaconda3
-source activate env_gcl
+source activate env_gssl
 
 # 2. Se placer dans le bon dossier
 cd $SLURM_SUBMIT_DIR
