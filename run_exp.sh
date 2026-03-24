@@ -9,8 +9,8 @@
 #SBATCH --mem=8G                     # On demande 8 Go de RAM
 #SBATCH --time=01:00:00              # Temps maximum alloué (Heures:Minutes:Secondes)
 
-# 1. Charger les modules et l'environnement
-module load anaconda3
+# 1. Charger les modules et l'environnemento 
+module load anaconda3/2023.09-0/none-none
 source activate env_gssl
 
 # 2. Se placer dans le bon dossier
