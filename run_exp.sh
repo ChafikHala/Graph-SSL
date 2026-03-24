@@ -7,7 +7,7 @@
 #SBATCH --ntasks=1                   # 1 tâche
 #SBATCH --cpus-per-task=4            # On demande 4 coeurs CPU pour que ça aille vite
 #SBATCH --mem=8G                     # On demande 8 Go de RAM
-#SBATCH --time=02:00:00              # Temps maximum alloué (Heures:Minutes:Secondes)
+#SBATCH --time=01:00:00              # Temps maximum alloué (Heures:Minutes:Secondes)
 
 # 1. Charger les modules et l'environnement
 module load anaconda3
