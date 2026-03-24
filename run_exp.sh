@@ -19,6 +19,11 @@ cd $SLURM_SUBMIT_DIR
 # 3. Lancer ton code Python
 echo "Start of search..."
 
+
+# Add path
+export PYTHONPATH=${PYTHONPATH}:${SLURM_SUBMIT_DIR}
+
+
 # Exhaustive grid search
 #python wl_gcl/src/utils/tune.py --trainer wl_hierarchy --dataset cora --search grid
 
