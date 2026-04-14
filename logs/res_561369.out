@@ -1,0 +1,554 @@
+Start of search...
+Existing trials in results.jsonl: 10
+Planned candidates: 40
+
+=== [1/40] Trial 14f1362521e3 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.0,
+  "epochs": 400,
+  "heads": 2,
+  "hidden_dim": 128,
+  "lambda_hier": 0.01,
+  "lambda_nce": 10.0,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 128,
+  "out_dim": 128,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.2,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=400 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/400  Loss: 163.4219  Acc: 0.3487
+[WL-HIERARCHY | chameleon   ] Epoch 020/400  Loss: 164.2381  Acc: 0.3618
+[WL-HIERARCHY | chameleon   ] Epoch 030/400  Loss: 161.8677  Acc: 0.4101
+[WL-HIERARCHY | chameleon   ] Epoch 040/400  Loss: 159.5745  Acc: 0.4145
+[WL-HIERARCHY | chameleon   ] Epoch 050/400  Loss: 158.0241  Acc: 0.4298
+[WL-HIERARCHY | chameleon   ] Epoch 060/400  Loss: 157.0530  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 070/400  Loss: 156.5587  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 080/400  Loss: 155.9231  Acc: 0.4803
+[WL-HIERARCHY | chameleon   ] Epoch 090/400  Loss: 155.4929  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 100/400  Loss: 154.9561  Acc: 0.4825
+[WL-HIERARCHY | chameleon   ] Epoch 110/400  Loss: 155.5211  Acc: 0.4846
+[WL-HIERARCHY | chameleon   ] Epoch 120/400  Loss: 154.6239  Acc: 0.4934
+[WL-HIERARCHY | chameleon   ] Epoch 130/400  Loss: 154.0154  Acc: 0.4890
+[WL-HIERARCHY | chameleon   ] Epoch 140/400  Loss: 153.7565  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 150/400  Loss: 153.2814  Acc: 0.5022
+[WL-HIERARCHY | chameleon   ] Epoch 160/400  Loss: 153.0341  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 170/400  Loss: 153.2368  Acc: 0.5110
+[WL-HIERARCHY | chameleon   ] Epoch 180/400  Loss: 152.7060  Acc: 0.5000
+[WL-HIERARCHY | chameleon   ] Epoch 190/400  Loss: 152.4344  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 200/400  Loss: 152.2641  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 210/400  Loss: 152.1398  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 220/400  Loss: 152.0049  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 230/400  Loss: 151.8403  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 240/400  Loss: 151.7276  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 250/400  Loss: 151.6338  Acc: 0.5110
+[WL-HIERARCHY | chameleon   ] Epoch 260/400  Loss: 151.5509  Acc: 0.5175
+[WL-HIERARCHY | chameleon   ] Epoch 270/400  Loss: 151.4792  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 280/400  Loss: 151.4184  Acc: 0.5197
+[WL-HIERARCHY | chameleon   ] Epoch 290/400  Loss: 151.3666  Acc: 0.5219
+[WL-HIERARCHY | chameleon   ] Epoch 300/400  Loss: 151.3223  Acc: 0.5285
+[WL-HIERARCHY | chameleon   ] Epoch 310/400  Loss: 151.2862  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 320/400  Loss: 151.2568  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 330/400  Loss: 151.2335  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 340/400  Loss: 151.2157  Acc: 0.5110
+[WL-HIERARCHY | chameleon   ] Epoch 350/400  Loss: 151.2027  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 360/400  Loss: 151.1937  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 370/400  Loss: 151.1881  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 380/400  Loss: 151.1851  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 390/400  Loss: 151.1839  Acc: 0.5175
+[WL-HIERARCHY | chameleon   ] Epoch 400/400  Loss: 151.1837  Acc: 0.5088
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.5285
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [2/40] Trial 24dc28e23e6c (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.5,
+  "epochs": 400,
+  "heads": 2,
+  "hidden_dim": 128,
+  "lambda_hier": 0.0001,
+  "lambda_nce": 1.0,
+  "lr": 0.0001,
+  "num_layers": 4,
+  "num_negatives": 512,
+  "out_dim": 64,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=400 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/400  Loss: 35.4297  Acc: 0.3487
+[WL-HIERARCHY | chameleon   ] Epoch 020/400  Loss: 42.0498  Acc: 0.3465
+[WL-HIERARCHY | chameleon   ] Epoch 030/400  Loss: 41.6172  Acc: 0.3114
+[WL-HIERARCHY | chameleon   ] Epoch 040/400  Loss: 41.3690  Acc: 0.3816
+[WL-HIERARCHY | chameleon   ] Epoch 050/400  Loss: 41.1014  Acc: 0.3750
+[WL-HIERARCHY | chameleon   ] Epoch 060/400  Loss: 40.9065  Acc: 0.4145
+[WL-HIERARCHY | chameleon   ] Epoch 070/400  Loss: 40.6897  Acc: 0.4211
+[WL-HIERARCHY | chameleon   ] Epoch 080/400  Loss: 40.5635  Acc: 0.4320
+[WL-HIERARCHY | chameleon   ] Epoch 090/400  Loss: 40.4979  Acc: 0.4452
+[WL-HIERARCHY | chameleon   ] Epoch 100/400  Loss: 40.3281  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 110/400  Loss: 40.1999  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 120/400  Loss: 40.1156  Acc: 0.4781
+[WL-HIERARCHY | chameleon   ] Epoch 130/400  Loss: 39.9996  Acc: 0.4452
+[WL-HIERARCHY | chameleon   ] Epoch 140/400  Loss: 39.9717  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 150/400  Loss: 39.9265  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 160/400  Loss: 39.8229  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 170/400  Loss: 39.7393  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 180/400  Loss: 39.6851  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 190/400  Loss: 39.6519  Acc: 0.4474
+[WL-HIERARCHY | chameleon   ] Epoch 200/400  Loss: 39.5965  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 210/400  Loss: 39.5642  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 220/400  Loss: 39.5158  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 230/400  Loss: 39.4856  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 240/400  Loss: 39.4520  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 250/400  Loss: 39.4216  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 260/400  Loss: 39.3976  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 270/400  Loss: 39.3770  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 280/400  Loss: 39.3601  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 290/400  Loss: 39.3453  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 300/400  Loss: 39.3319  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 310/400  Loss: 39.3214  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 320/400  Loss: 39.3129  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 330/400  Loss: 39.3063  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 340/400  Loss: 39.3012  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 350/400  Loss: 39.2974  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 360/400  Loss: 39.2949  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 370/400  Loss: 39.2933  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 380/400  Loss: 39.2924  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 390/400  Loss: 39.2921  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 400/400  Loss: 39.2920  Acc: 0.4627
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.4781
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [3/40] Trial 87293053cd87 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.0,
+  "epochs": 200,
+  "heads": 8,
+  "hidden_dim": 256,
+  "lambda_hier": 0.05,
+  "lambda_nce": 0.5,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 64,
+  "out_dim": 64,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.1,
+  "warmup": 80,
+  "weight_decay": 1e-05,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=200 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/200  Loss: 6.6097  Acc: 0.3246
+[WL-HIERARCHY | chameleon   ] Epoch 020/200  Loss: 19.9056  Acc: 0.3355
+[WL-HIERARCHY | chameleon   ] Epoch 030/200  Loss: 19.5150  Acc: 0.3399
+[WL-HIERARCHY | chameleon   ] Epoch 040/200  Loss: 26.5521  Acc: 0.4013
+[WL-HIERARCHY | chameleon   ] Epoch 050/200  Loss: 26.3654  Acc: 0.3947
+[WL-HIERARCHY | chameleon   ] Epoch 060/200  Loss: 33.3483  Acc: 0.4189
+[WL-HIERARCHY | chameleon   ] Epoch 070/200  Loss: 33.1861  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 080/200  Loss: 33.0978  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 090/200  Loss: 32.9676  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 100/200  Loss: 32.8644  Acc: 0.4408
+[WL-HIERARCHY | chameleon   ] Epoch 110/200  Loss: 32.7816  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 120/200  Loss: 32.7231  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 130/200  Loss: 32.6695  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 140/200  Loss: 32.6225  Acc: 0.4276
+[WL-HIERARCHY | chameleon   ] Epoch 150/200  Loss: 32.5910  Acc: 0.4364
+[WL-HIERARCHY | chameleon   ] Epoch 160/200  Loss: 32.5683  Acc: 0.4518
+[WL-HIERARCHY | chameleon   ] Epoch 170/200  Loss: 32.5548  Acc: 0.4386
+[WL-HIERARCHY | chameleon   ] Epoch 180/200  Loss: 32.5475  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 190/200  Loss: 32.5447  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 200/200  Loss: 32.5441  Acc: 0.4474
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.4868
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [4/40] Trial 827c2b6da6f4 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.5,
+  "epochs": 300,
+  "heads": 8,
+  "hidden_dim": 128,
+  "lambda_hier": 0.0001,
+  "lambda_nce": 5.0,
+  "lr": 0.001,
+  "num_layers": 3,
+  "num_negatives": 128,
+  "out_dim": 128,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.2,
+  "warmup": 80,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/300  Loss: 19.8271  Acc: 0.3640
+[WL-HIERARCHY | chameleon   ] Epoch 020/300  Loss: 80.2327  Acc: 0.4035
+[WL-HIERARCHY | chameleon   ] Epoch 030/300  Loss: 77.7671  Acc: 0.4364
+[WL-HIERARCHY | chameleon   ] Epoch 040/300  Loss: 84.8937  Acc: 0.4452
+[WL-HIERARCHY | chameleon   ] Epoch 050/300  Loss: 84.1023  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 060/300  Loss: 90.5038  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 070/300  Loss: 89.8578  Acc: 0.4912
+[WL-HIERARCHY | chameleon   ] Epoch 080/300  Loss: 89.3836  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 090/300  Loss: 88.8454  Acc: 0.4934
+[WL-HIERARCHY | chameleon   ] Epoch 100/300  Loss: 88.4415  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 110/300  Loss: 88.0973  Acc: 0.5110
+[WL-HIERARCHY | chameleon   ] Epoch 120/300  Loss: 87.7163  Acc: 0.4934
+[WL-HIERARCHY | chameleon   ] Epoch 130/300  Loss: 87.4367  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 140/300  Loss: 87.1570  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 150/300  Loss: 86.9007  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 160/300  Loss: 86.6773  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 170/300  Loss: 86.4820  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 180/300  Loss: 86.3154  Acc: 0.4978
+[WL-HIERARCHY | chameleon   ] Epoch 190/300  Loss: 86.1699  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 200/300  Loss: 86.0458  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 210/300  Loss: 85.9437  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 220/300  Loss: 85.8614  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 230/300  Loss: 85.7965  Acc: 0.5197
+[WL-HIERARCHY | chameleon   ] Epoch 240/300  Loss: 85.7471  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 250/300  Loss: 85.7112  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 260/300  Loss: 85.6866  Acc: 0.5088
+[WL-HIERARCHY | chameleon   ] Epoch 270/300  Loss: 85.6713  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 280/300  Loss: 85.6631  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 290/300  Loss: 85.6599  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 300/300  Loss: 85.6593  Acc: 0.5088
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.5197
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [5/40] Trial 084b32a77a7a (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.5,
+  "epochs": 400,
+  "heads": 2,
+  "hidden_dim": 256,
+  "lambda_hier": 0.01,
+  "lambda_nce": 0.5,
+  "lr": 0.001,
+  "num_layers": 4,
+  "num_negatives": 256,
+  "out_dim": 128,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 10
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=400 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/400  Loss: 26.9474  Acc: 0.3399
+[WL-HIERARCHY | chameleon   ] Epoch 020/400  Loss: 33.4531  Acc: 0.3816
+[WL-HIERARCHY | chameleon   ] Epoch 030/400  Loss: 32.9334  Acc: 0.4342
+[WL-HIERARCHY | chameleon   ] Epoch 040/400  Loss: 32.4941  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 050/400  Loss: 32.0961  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 060/400  Loss: 31.7105  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 070/400  Loss: 31.3488  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 080/400  Loss: 30.9316  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 090/400  Loss: 30.5838  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 100/400  Loss: 30.2152  Acc: 0.4276
+[WL-HIERARCHY | chameleon   ] Epoch 110/400  Loss: 29.8799  Acc: 0.4408
+[WL-HIERARCHY | chameleon   ] Epoch 120/400  Loss: 29.5329  Acc: 0.4408
+[WL-HIERARCHY | chameleon   ] Epoch 130/400  Loss: 29.2449  Acc: 0.4298
+[WL-HIERARCHY | chameleon   ] Epoch 140/400  Loss: 28.9285  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 150/400  Loss: 28.6482  Acc: 0.4518
+[WL-HIERARCHY | chameleon   ] Epoch 160/400  Loss: 28.3686  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 170/400  Loss: 28.1209  Acc: 0.4474
+[WL-HIERARCHY | chameleon   ] Epoch 180/400  Loss: 27.8711  Acc: 0.4518
+[WL-HIERARCHY | chameleon   ] Epoch 190/400  Loss: 27.6561  Acc: 0.4496
+[WL-HIERARCHY | chameleon   ] Epoch 200/400  Loss: 27.4518  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 210/400  Loss: 27.2654  Acc: 0.4474
+[WL-HIERARCHY | chameleon   ] Epoch 220/400  Loss: 27.0838  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 230/400  Loss: 26.9253  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 240/400  Loss: 26.7832  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 250/400  Loss: 26.6556  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 260/400  Loss: 26.5427  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 270/400  Loss: 26.4434  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 280/400  Loss: 26.3573  Acc: 0.4518
+[WL-HIERARCHY | chameleon   ] Epoch 290/400  Loss: 26.2834  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 300/400  Loss: 26.2211  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 310/400  Loss: 26.1694  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 320/400  Loss: 26.1276  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 330/400  Loss: 26.0946  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 340/400  Loss: 26.0695  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 350/400  Loss: 26.0513  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 360/400  Loss: 26.0389  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 370/400  Loss: 26.0311  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 380/400  Loss: 26.0271  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 390/400  Loss: 26.0254  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 400/400  Loss: 26.0251  Acc: 0.4627
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.4868
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [6/40] Trial a0ced58337be (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.2,
+  "epochs": 300,
+  "heads": 4,
+  "hidden_dim": 128,
+  "lambda_hier": 0.1,
+  "lambda_nce": 0.5,
+  "lr": 0.001,
+  "num_layers": 4,
+  "num_negatives": 64,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.5,
+  "warmup": 40,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 10
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/300  Loss: 19.1965  Acc: 0.3465
+[WL-HIERARCHY | chameleon   ] Epoch 020/300  Loss: 26.0461  Acc: 0.4057
+[WL-HIERARCHY | chameleon   ] Epoch 030/300  Loss: 32.6961  Acc: 0.4189
+[WL-HIERARCHY | chameleon   ] Epoch 040/300  Loss: 32.1452  Acc: 0.4386
+[WL-HIERARCHY | chameleon   ] Epoch 050/300  Loss: 31.6048  Acc: 0.4496
+[WL-HIERARCHY | chameleon   ] Epoch 060/300  Loss: 31.0817  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 070/300  Loss: 30.5787  Acc: 0.4627
+[WL-HIERARCHY | chameleon   ] Epoch 080/300  Loss: 30.1059  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 090/300  Loss: 29.6535  Acc: 0.4496
+[WL-HIERARCHY | chameleon   ] Epoch 100/300  Loss: 29.2438  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 110/300  Loss: 28.8450  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 120/300  Loss: 28.4733  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 130/300  Loss: 28.1365  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 140/300  Loss: 27.8347  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 150/300  Loss: 27.5554  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 160/300  Loss: 27.3198  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 170/300  Loss: 27.0919  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 180/300  Loss: 26.8988  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 190/300  Loss: 26.7334  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 200/300  Loss: 26.5930  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 210/300  Loss: 26.4763  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 220/300  Loss: 26.3813  Acc: 0.4781
+[WL-HIERARCHY | chameleon   ] Epoch 230/300  Loss: 26.3061  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 240/300  Loss: 26.2487  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 250/300  Loss: 26.2069  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 260/300  Loss: 26.1783  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 270/300  Loss: 26.1605  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 280/300  Loss: 26.1511  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 290/300  Loss: 26.1473  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 300/300  Loss: 26.1467  Acc: 0.4715
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.4781
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [7/40] Trial 4f6b1d520c51 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.2,
+  "epochs": 400,
+  "heads": 8,
+  "hidden_dim": 512,
+  "lambda_hier": 0.05,
+  "lambda_nce": 0.5,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 512,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.2,
+  "warmup": 40,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=400 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/400  Loss: 19.2932  Acc: 0.3838
+[WL-HIERARCHY | chameleon   ] Epoch 020/400  Loss: 26.1415  Acc: 0.3596
+[WL-HIERARCHY | chameleon   ] Epoch 030/400  Loss: 33.0088  Acc: 0.4145
+[WL-HIERARCHY | chameleon   ] Epoch 040/400  Loss: 32.8807  Acc: 0.4386
+[WL-HIERARCHY | chameleon   ] Epoch 050/400  Loss: 32.7902  Acc: 0.4825
+[WL-HIERARCHY | chameleon   ] Epoch 060/400  Loss: 32.6902  Acc: 0.5044
+[WL-HIERARCHY | chameleon   ] Epoch 070/400  Loss: 32.5862  Acc: 0.5066
+[WL-HIERARCHY | chameleon   ] Epoch 080/400  Loss: 32.5149  Acc: 0.5219
+[WL-HIERARCHY | chameleon   ] Epoch 090/400  Loss: 32.4331  Acc: 0.5395
+[WL-HIERARCHY | chameleon   ] Epoch 100/400  Loss: 32.3665  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 110/400  Loss: 32.3063  Acc: 0.5636
+[WL-HIERARCHY | chameleon   ] Epoch 120/400  Loss: 32.2375  Acc: 0.5614
+[WL-HIERARCHY | chameleon   ] Epoch 130/400  Loss: 32.1827  Acc: 0.5482
+[WL-HIERARCHY | chameleon   ] Epoch 140/400  Loss: 32.1319  Acc: 0.5504
+[WL-HIERARCHY | chameleon   ] Epoch 150/400  Loss: 32.0785  Acc: 0.5526
+[WL-HIERARCHY | chameleon   ] Epoch 160/400  Loss: 32.0327  Acc: 0.5482
+[WL-HIERARCHY | chameleon   ] Epoch 170/400  Loss: 31.9874  Acc: 0.5504
+[WL-HIERARCHY | chameleon   ] Epoch 180/400  Loss: 31.9508  Acc: 0.5526
+[WL-HIERARCHY | chameleon   ] Epoch 190/400  Loss: 31.9122  Acc: 0.5548
+[WL-HIERARCHY | chameleon   ] Epoch 200/400  Loss: 31.8782  Acc: 0.5482
+[WL-HIERARCHY | chameleon   ] Epoch 210/400  Loss: 31.8440  Acc: 0.5439
+[WL-HIERARCHY | chameleon   ] Epoch 220/400  Loss: 31.8143  Acc: 0.5504
+[WL-HIERARCHY | chameleon   ] Epoch 230/400  Loss: 31.7879  Acc: 0.5636
+[WL-HIERARCHY | chameleon   ] Epoch 240/400  Loss: 31.7641  Acc: 0.5614
+[WL-HIERARCHY | chameleon   ] Epoch 250/400  Loss: 31.7430  Acc: 0.5658
+[WL-HIERARCHY | chameleon   ] Epoch 260/400  Loss: 31.7242  Acc: 0.5636
+[WL-HIERARCHY | chameleon   ] Epoch 270/400  Loss: 31.7078  Acc: 0.5570
+[WL-HIERARCHY | chameleon   ] Epoch 280/400  Loss: 31.6935  Acc: 0.5636
+[WL-HIERARCHY | chameleon   ] Epoch 290/400  Loss: 31.6812  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 300/400  Loss: 31.6708  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 310/400  Loss: 31.6622  Acc: 0.5636
+[WL-HIERARCHY | chameleon   ] Epoch 320/400  Loss: 31.6552  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 330/400  Loss: 31.6497  Acc: 0.5614
+[WL-HIERARCHY | chameleon   ] Epoch 340/400  Loss: 31.6455  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 350/400  Loss: 31.6424  Acc: 0.5570
+[WL-HIERARCHY | chameleon   ] Epoch 360/400  Loss: 31.6403  Acc: 0.5570
+[WL-HIERARCHY | chameleon   ] Epoch 370/400  Loss: 31.6391  Acc: 0.5614
+[WL-HIERARCHY | chameleon   ] Epoch 380/400  Loss: 31.6384  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 390/400  Loss: 31.6381  Acc: 0.5592
+[WL-HIERARCHY | chameleon   ] Epoch 400/400  Loss: 31.6380  Acc: 0.5570
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.5658
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [8/40] Trial af2728d9c243 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.2,
+  "epochs": 300,
+  "heads": 2,
+  "hidden_dim": 128,
+  "lambda_hier": 0.05,
+  "lambda_nce": 5.0,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 128,
+  "out_dim": 64,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.2,
+  "warmup": 40,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 10
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/300  Loss: 84.4467  Acc: 0.3180
+[WL-HIERARCHY | chameleon   ] Epoch 020/300  Loss: 90.0930  Acc: 0.3553
+[WL-HIERARCHY | chameleon   ] Epoch 030/300  Loss: 95.4182  Acc: 0.3596
+[WL-HIERARCHY | chameleon   ] Epoch 040/300  Loss: 94.0073  Acc: 0.4123
+[WL-HIERARCHY | chameleon   ] Epoch 050/300  Loss: 93.4747  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 060/300  Loss: 92.6525  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 070/300  Loss: 92.1913  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 080/300  Loss: 91.9335  Acc: 0.4430
+[WL-HIERARCHY | chameleon   ] Epoch 090/300  Loss: 91.5764  Acc: 0.4803
+[WL-HIERARCHY | chameleon   ] Epoch 100/300  Loss: 91.5087  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 110/300  Loss: 91.0806  Acc: 0.4846
+[WL-HIERARCHY | chameleon   ] Epoch 120/300  Loss: 90.7975  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 130/300  Loss: 90.6265  Acc: 0.4496
+[WL-HIERARCHY | chameleon   ] Epoch 140/300  Loss: 90.5995  Acc: 0.4693
+[WL-HIERARCHY | chameleon   ] Epoch 150/300  Loss: 90.4125  Acc: 0.4518
+[WL-HIERARCHY | chameleon   ] Epoch 160/300  Loss: 90.2522  Acc: 0.4825
+[WL-HIERARCHY | chameleon   ] Epoch 170/300  Loss: 90.1349  Acc: 0.4868
+[WL-HIERARCHY | chameleon   ] Epoch 180/300  Loss: 90.0280  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 190/300  Loss: 89.9457  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 200/300  Loss: 89.8807  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 210/300  Loss: 89.8297  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 220/300  Loss: 89.7899  Acc: 0.4605
+[WL-HIERARCHY | chameleon   ] Epoch 230/300  Loss: 89.7590  Acc: 0.4759
+[WL-HIERARCHY | chameleon   ] Epoch 240/300  Loss: 89.7352  Acc: 0.4715
+[WL-HIERARCHY | chameleon   ] Epoch 250/300  Loss: 89.7176  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 260/300  Loss: 89.7054  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 270/300  Loss: 89.6978  Acc: 0.4671
+[WL-HIERARCHY | chameleon   ] Epoch 280/300  Loss: 89.6937  Acc: 0.4583
+[WL-HIERARCHY | chameleon   ] Epoch 290/300  Loss: 89.6921  Acc: 0.4649
+[WL-HIERARCHY | chameleon   ] Epoch 300/300  Loss: 89.6918  Acc: 0.4671
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.4868
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [9/40] Trial fbab07a87405 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.2,
+  "epochs": 200,
+  "heads": 8,
+  "hidden_dim": 256,
+  "lambda_hier": 0.1,
+  "lambda_nce": 1.0,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 128,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.2,
+  "warmup": 20,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=200 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/200  Loss: 33.8084  Acc: 0.3684
+[WL-HIERARCHY | chameleon   ] Epoch 020/200  Loss: 40.2078  Acc: 0.4298
+[WL-HIERARCHY | chameleon   ] Epoch 030/200  Loss: 39.7681  Acc: 0.4145
+[WL-HIERARCHY | chameleon   ] Epoch 040/200  Loss: 39.4887  Acc: 0.4561
+[WL-HIERARCHY | chameleon   ] Epoch 050/200  Loss: 39.3370  Acc: 0.4539
+[WL-HIERARCHY | chameleon   ] Epoch 060/200  Loss: 39.2095  Acc: 0.4978
+[WL-HIERARCHY | chameleon   ] Epoch 070/200  Loss: 39.1203  Acc: 0.5175
+[WL-HIERARCHY | chameleon   ] Epoch 080/200  Loss: 39.0289  Acc: 0.5263
+[WL-HIERARCHY | chameleon   ] Epoch 090/200  Loss: 38.9606  Acc: 0.5132
+[WL-HIERARCHY | chameleon   ] Epoch 100/200  Loss: 38.8994  Acc: 0.5154
+[WL-HIERARCHY | chameleon   ] Epoch 110/200  Loss: 38.8521  Acc: 0.5285
+[WL-HIERARCHY | chameleon   ] Epoch 120/200  Loss: 38.8114  Acc: 0.5351
+[WL-HIERARCHY | chameleon   ] Epoch 130/200  Loss: 38.7792  Acc: 0.5373
+[WL-HIERARCHY | chameleon   ] Epoch 140/200  Loss: 38.7547  Acc: 0.5461
+[WL-HIERARCHY | chameleon   ] Epoch 150/200  Loss: 38.7366  Acc: 0.5417
+[WL-HIERARCHY | chameleon   ] Epoch 160/200  Loss: 38.7241  Acc: 0.5351
+[WL-HIERARCHY | chameleon   ] Epoch 170/200  Loss: 38.7162  Acc: 0.5329
+[WL-HIERARCHY | chameleon   ] Epoch 180/200  Loss: 38.7119  Acc: 0.5351
+[WL-HIERARCHY | chameleon   ] Epoch 190/200  Loss: 38.7102  Acc: 0.5351
+[WL-HIERARCHY | chameleon   ] Epoch 200/200  Loss: 38.7099  Acc: 0.5307
+[WL-HIERARCHY | CHAMELEON   ] Best Acc: 0.5461
+[BEST GLOBAL] best_accuracy=0.5833 trial=1992b944250e
+
+=== [10/40] Trial b31834992a57 (wl_hierarchy/chameleon) ===
+{
+  "dropout": 0.1,
+  "epochs": 300,
+  "heads": 2,
+  "hidden_dim": 256,
+  "lambda_hier": 0.01,
+  "lambda_nce": 10.0,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 256,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CHAMELEON | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | chameleon   ] Epoch 010/300  Loss: 174.5072  Acc: 0.4057
+[WL-HIERARCHY | chameleon   ] Epoch 020/300  Loss: 173.1398  Acc: 0.4364
+[WL-HIERARCHY | chameleon   ] Epoch 030/300  Loss: 168.5567  Acc: 0.4123
+[WL-HIERARCHY | chameleon   ] Epoch 040/300  Loss: 166.0623  Acc: 0.4101
+[WL-HIERARCHY | chameleon   ] Epoch 050/300  Loss: 163.8026  Acc: 0.4781
+[WL-HIERARCHY | chameleon   ] Epoch 060/300  Loss: 163.2836  Acc: 0.4737
+[WL-HIERARCHY | chameleon   ] Epoch 070/300  Loss: 161.5333  Acc: 0.5110
+[WL-HIERARCHY | chameleon   ] Epoch 080/300  Loss: 160.8014  Acc: 0.5329
+[WL-HIERARCHY | chameleon   ] Epoch 090/300  Loss: 159.7262  Acc: 0.5241
+[WL-HIERARCHY | chameleon   ] Epoch 100/300  Loss: 159.5229  Acc: 0.5329
+[WL-HIERARCHY | chameleon   ] Epoch 110/300  Loss: 158.9112  Acc: 0.5373
+[WL-HIERARCHY | chameleon   ] Epoch 120/300  Loss: 158.3036  Acc: 0.5439
+[WL-HIERARCHY | chameleon   ] Epoch 130/300  Loss: 157.7807  Acc: 0.5439

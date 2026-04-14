@@ -1,0 +1,299 @@
+Start of search...
+Existing trials in results.jsonl: 24
+Planned candidates: 40
+
+=== [1/40] Trial 948295090dc7 (wl_hierarchy/cora) ===
+{
+  "dropout": 0.2,
+  "epochs": 400,
+  "heads": 8,
+  "hidden_dim": 512,
+  "lambda_hier": 0.05,
+  "lambda_nce": 0.5,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 512,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.2,
+  "warmup": 40,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=400 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/400  Loss: 19.6430  Acc: 0.2350
+[WL-HIERARCHY | cora        ] Epoch 020/400  Loss: 30.9108  Acc: 0.2420
+[WL-HIERARCHY | cora        ] Epoch 030/400  Loss: 38.7917  Acc: 0.3030
+[WL-HIERARCHY | cora        ] Epoch 040/400  Loss: 46.4147  Acc: 0.4150
+[WL-HIERARCHY | cora        ] Epoch 050/400  Loss: 46.2935  Acc: 0.5010
+[WL-HIERARCHY | cora        ] Epoch 060/400  Loss: 46.1921  Acc: 0.5500
+[WL-HIERARCHY | cora        ] Epoch 070/400  Loss: 46.1028  Acc: 0.5440
+[WL-HIERARCHY | cora        ] Epoch 080/400  Loss: 46.0246  Acc: 0.5000
+[WL-HIERARCHY | cora        ] Epoch 090/400  Loss: 45.9466  Acc: 0.4580
+[WL-HIERARCHY | cora        ] Epoch 100/400  Loss: 45.8749  Acc: 0.4470
+[WL-HIERARCHY | cora        ] Epoch 110/400  Loss: 45.8108  Acc: 0.4400
+[WL-HIERARCHY | cora        ] Epoch 120/400  Loss: 45.7456  Acc: 0.4450
+[WL-HIERARCHY | cora        ] Epoch 130/400  Loss: 45.6854  Acc: 0.4290
+[WL-HIERARCHY | cora        ] Epoch 140/400  Loss: 45.6298  Acc: 0.4290
+[WL-HIERARCHY | cora        ] Epoch 150/400  Loss: 45.5750  Acc: 0.4280
+[WL-HIERARCHY | cora        ] Epoch 160/400  Loss: 45.5251  Acc: 0.4130
+[WL-HIERARCHY | cora        ] Epoch 170/400  Loss: 45.4775  Acc: 0.4120
+[WL-HIERARCHY | cora        ] Epoch 180/400  Loss: 45.4328  Acc: 0.4140
+[WL-HIERARCHY | cora        ] Epoch 190/400  Loss: 45.3917  Acc: 0.4090
+[WL-HIERARCHY | cora        ] Epoch 200/400  Loss: 45.3531  Acc: 0.4030
+[WL-HIERARCHY | cora        ] Epoch 210/400  Loss: 45.3176  Acc: 0.4010
+[WL-HIERARCHY | cora        ] Epoch 220/400  Loss: 45.2851  Acc: 0.4010
+[WL-HIERARCHY | cora        ] Epoch 230/400  Loss: 45.2553  Acc: 0.3920
+[WL-HIERARCHY | cora        ] Epoch 240/400  Loss: 45.2284  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 250/400  Loss: 45.2043  Acc: 0.3950
+[WL-HIERARCHY | cora        ] Epoch 260/400  Loss: 45.1828  Acc: 0.3970
+[WL-HIERARCHY | cora        ] Epoch 270/400  Loss: 45.1639  Acc: 0.3970
+[WL-HIERARCHY | cora        ] Epoch 280/400  Loss: 45.1475  Acc: 0.3970
+[WL-HIERARCHY | cora        ] Epoch 290/400  Loss: 45.1334  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 300/400  Loss: 45.1215  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 310/400  Loss: 45.1116  Acc: 0.3950
+[WL-HIERARCHY | cora        ] Epoch 320/400  Loss: 45.1035  Acc: 0.3980
+[WL-HIERARCHY | cora        ] Epoch 330/400  Loss: 45.0972  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 340/400  Loss: 45.0924  Acc: 0.3960
+[WL-HIERARCHY | cora        ] Epoch 350/400  Loss: 45.0889  Acc: 0.3960
+[WL-HIERARCHY | cora        ] Epoch 360/400  Loss: 45.0865  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 370/400  Loss: 45.0850  Acc: 0.4000
+[WL-HIERARCHY | cora        ] Epoch 380/400  Loss: 45.0842  Acc: 0.4020
+[WL-HIERARCHY | cora        ] Epoch 390/400  Loss: 45.0839  Acc: 0.3970
+[WL-HIERARCHY | cora        ] Epoch 400/400  Loss: 45.0839  Acc: 0.3980
+[WL-HIERARCHY | CORA        ] Best Acc: 0.5500
+[BEST GLOBAL] best_accuracy=0.5790 trial=ae9397aa8f95
+
+=== [2/40] Trial 59ba773a7ec8 (wl_hierarchy/cora) ===
+{
+  "dropout": 0.2,
+  "epochs": 300,
+  "heads": 2,
+  "hidden_dim": 128,
+  "lambda_hier": 0.05,
+  "lambda_nce": 5.0,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 128,
+  "out_dim": 64,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.2,
+  "warmup": 40,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 10
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/300  Loss: 98.4907  Acc: 0.2160
+[WL-HIERARCHY | cora        ] Epoch 020/300  Loss: 142.5999  Acc: 0.2420
+[WL-HIERARCHY | cora        ] Epoch 030/300  Loss: 151.0896  Acc: 0.3130
+[WL-HIERARCHY | cora        ] Epoch 040/300  Loss: 157.3993  Acc: 0.3640
+[WL-HIERARCHY | cora        ] Epoch 050/300  Loss: 156.5983  Acc: 0.4040
+[WL-HIERARCHY | cora        ] Epoch 060/300  Loss: 156.1918  Acc: 0.4640
+[WL-HIERARCHY | cora        ] Epoch 070/300  Loss: 155.8893  Acc: 0.4940
+[WL-HIERARCHY | cora        ] Epoch 080/300  Loss: 155.5901  Acc: 0.4520
+[WL-HIERARCHY | cora        ] Epoch 090/300  Loss: 155.3852  Acc: 0.4230
+[WL-HIERARCHY | cora        ] Epoch 100/300  Loss: 155.1757  Acc: 0.4030
+[WL-HIERARCHY | cora        ] Epoch 110/300  Loss: 155.1888  Acc: 0.4010
+[WL-HIERARCHY | cora        ] Epoch 120/300  Loss: 154.8912  Acc: 0.3880
+[WL-HIERARCHY | cora        ] Epoch 130/300  Loss: 154.7059  Acc: 0.3940
+[WL-HIERARCHY | cora        ] Epoch 140/300  Loss: 154.5881  Acc: 0.3830
+[WL-HIERARCHY | cora        ] Epoch 150/300  Loss: 154.4992  Acc: 0.3620
+[WL-HIERARCHY | cora        ] Epoch 160/300  Loss: 154.4261  Acc: 0.3690
+[WL-HIERARCHY | cora        ] Epoch 170/300  Loss: 154.3644  Acc: 0.3740
+[WL-HIERARCHY | cora        ] Epoch 180/300  Loss: 154.3117  Acc: 0.3720
+[WL-HIERARCHY | cora        ] Epoch 190/300  Loss: 154.2669  Acc: 0.3760
+[WL-HIERARCHY | cora        ] Epoch 200/300  Loss: 154.2293  Acc: 0.3760
+[WL-HIERARCHY | cora        ] Epoch 210/300  Loss: 154.1981  Acc: 0.3680
+[WL-HIERARCHY | cora        ] Epoch 220/300  Loss: 154.1728  Acc: 0.3780
+[WL-HIERARCHY | cora        ] Epoch 230/300  Loss: 154.1527  Acc: 0.3710
+[WL-HIERARCHY | cora        ] Epoch 240/300  Loss: 154.1374  Acc: 0.3640
+[WL-HIERARCHY | cora        ] Epoch 250/300  Loss: 154.1262  Acc: 0.3690
+[WL-HIERARCHY | cora        ] Epoch 260/300  Loss: 154.1186  Acc: 0.3660
+[WL-HIERARCHY | cora        ] Epoch 270/300  Loss: 154.1138  Acc: 0.3600
+[WL-HIERARCHY | cora        ] Epoch 280/300  Loss: 154.1112  Acc: 0.3620
+[WL-HIERARCHY | cora        ] Epoch 290/300  Loss: 154.1102  Acc: 0.3640
+[WL-HIERARCHY | cora        ] Epoch 300/300  Loss: 154.1100  Acc: 0.3630
+[WL-HIERARCHY | CORA        ] Best Acc: 0.4940
+[BEST GLOBAL] best_accuracy=0.5790 trial=ae9397aa8f95
+
+=== [3/40] Trial 8c39eb3b7233 (wl_hierarchy/cora) ===
+{
+  "dropout": 0.2,
+  "epochs": 200,
+  "heads": 8,
+  "hidden_dim": 256,
+  "lambda_hier": 0.1,
+  "lambda_nce": 1.0,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 128,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.2,
+  "warmup": 20,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=200 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/200  Loss: 43.6532  Acc: 0.2340
+[WL-HIERARCHY | cora        ] Epoch 020/200  Loss: 59.0727  Acc: 0.2580
+[WL-HIERARCHY | cora        ] Epoch 030/200  Loss: 58.6675  Acc: 0.3160
+[WL-HIERARCHY | cora        ] Epoch 040/200  Loss: 58.4876  Acc: 0.4700
+[WL-HIERARCHY | cora        ] Epoch 050/200  Loss: 58.3737  Acc: 0.5500
+[WL-HIERARCHY | cora        ] Epoch 060/200  Loss: 58.2852  Acc: 0.5650
+[WL-HIERARCHY | cora        ] Epoch 070/200  Loss: 58.2138  Acc: 0.5410
+[WL-HIERARCHY | cora        ] Epoch 080/200  Loss: 58.1534  Acc: 0.4970
+[WL-HIERARCHY | cora        ] Epoch 090/200  Loss: 58.1018  Acc: 0.5130
+[WL-HIERARCHY | cora        ] Epoch 100/200  Loss: 58.0578  Acc: 0.4950
+[WL-HIERARCHY | cora        ] Epoch 110/200  Loss: 58.0209  Acc: 0.4900
+[WL-HIERARCHY | cora        ] Epoch 120/200  Loss: 57.9905  Acc: 0.4910
+[WL-HIERARCHY | cora        ] Epoch 130/200  Loss: 57.9662  Acc: 0.4920
+[WL-HIERARCHY | cora        ] Epoch 140/200  Loss: 57.9473  Acc: 0.4910
+[WL-HIERARCHY | cora        ] Epoch 150/200  Loss: 57.9333  Acc: 0.4930
+[WL-HIERARCHY | cora        ] Epoch 160/200  Loss: 57.9237  Acc: 0.4920
+[WL-HIERARCHY | cora        ] Epoch 170/200  Loss: 57.9176  Acc: 0.4940
+[WL-HIERARCHY | cora        ] Epoch 180/200  Loss: 57.9143  Acc: 0.4870
+[WL-HIERARCHY | cora        ] Epoch 190/200  Loss: 57.9130  Acc: 0.4930
+[WL-HIERARCHY | cora        ] Epoch 200/200  Loss: 57.9128  Acc: 0.4910
+[WL-HIERARCHY | CORA        ] Best Acc: 0.5650
+[BEST GLOBAL] best_accuracy=0.5790 trial=ae9397aa8f95
+
+=== [4/40] Trial ed076eb59e3f (wl_hierarchy/cora) ===
+{
+  "dropout": 0.1,
+  "epochs": 300,
+  "heads": 2,
+  "hidden_dim": 256,
+  "lambda_hier": 0.01,
+  "lambda_nce": 10.0,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 256,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=300 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/300  Loss: 286.2979  Acc: 0.2240
+[WL-HIERARCHY | cora        ] Epoch 020/300  Loss: 297.3963  Acc: 0.2530
+[WL-HIERARCHY | cora        ] Epoch 030/300  Loss: 292.7491  Acc: 0.3330
+[WL-HIERARCHY | cora        ] Epoch 040/300  Loss: 290.9012  Acc: 0.4930
+[WL-HIERARCHY | cora        ] Epoch 050/300  Loss: 289.9859  Acc: 0.5520
+[WL-HIERARCHY | cora        ] Epoch 060/300  Loss: 289.4206  Acc: 0.5510
+[WL-HIERARCHY | cora        ] Epoch 070/300  Loss: 289.0307  Acc: 0.4930
+[WL-HIERARCHY | cora        ] Epoch 080/300  Loss: 288.7518  Acc: 0.4360
+[WL-HIERARCHY | cora        ] Epoch 090/300  Loss: 288.5394  Acc: 0.4080
+[WL-HIERARCHY | cora        ] Epoch 100/300  Loss: 288.3700  Acc: 0.3730
+[WL-HIERARCHY | cora        ] Epoch 110/300  Loss: 288.2320  Acc: 0.3630
+[WL-HIERARCHY | cora        ] Epoch 120/300  Loss: 288.1172  Acc: 0.3560
+[WL-HIERARCHY | cora        ] Epoch 130/300  Loss: 288.0205  Acc: 0.3360
+[WL-HIERARCHY | cora        ] Epoch 140/300  Loss: 287.9372  Acc: 0.3360
+[WL-HIERARCHY | cora        ] Epoch 150/300  Loss: 287.8659  Acc: 0.3280
+[WL-HIERARCHY | cora        ] Epoch 160/300  Loss: 287.8056  Acc: 0.3290
+[WL-HIERARCHY | cora        ] Epoch 170/300  Loss: 287.7539  Acc: 0.3270
+[WL-HIERARCHY | cora        ] Epoch 180/300  Loss: 287.7100  Acc: 0.3280
+[WL-HIERARCHY | cora        ] Epoch 190/300  Loss: 287.6730  Acc: 0.3340
+[WL-HIERARCHY | cora        ] Epoch 200/300  Loss: 287.6422  Acc: 0.3280
+[WL-HIERARCHY | cora        ] Epoch 210/300  Loss: 287.6170  Acc: 0.3270
+[WL-HIERARCHY | cora        ] Epoch 220/300  Loss: 287.5966  Acc: 0.3220
+[WL-HIERARCHY | cora        ] Epoch 230/300  Loss: 287.5807  Acc: 0.3190
+[WL-HIERARCHY | cora        ] Epoch 240/300  Loss: 287.5685  Acc: 0.3150
+[WL-HIERARCHY | cora        ] Epoch 250/300  Loss: 287.5596  Acc: 0.3140
+[WL-HIERARCHY | cora        ] Epoch 260/300  Loss: 287.5536  Acc: 0.3170
+[WL-HIERARCHY | cora        ] Epoch 270/300  Loss: 287.5498  Acc: 0.3110
+[WL-HIERARCHY | cora        ] Epoch 280/300  Loss: 287.5477  Acc: 0.3130
+[WL-HIERARCHY | cora        ] Epoch 290/300  Loss: 287.5469  Acc: 0.3140
+[WL-HIERARCHY | cora        ] Epoch 300/300  Loss: 287.5468  Acc: 0.3160
+[WL-HIERARCHY | CORA        ] Best Acc: 0.5520
+[BEST GLOBAL] best_accuracy=0.5790 trial=ae9397aa8f95
+
+=== [5/40] Trial 861376bef408 (wl_hierarchy/cora) ===
+{
+  "dropout": 0.0,
+  "epochs": 200,
+  "heads": 4,
+  "hidden_dim": 256,
+  "lambda_hier": 0.001,
+  "lambda_nce": 0.5,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 512,
+  "out_dim": 128,
+  "scheduler": true,
+  "tau": 2.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 1e-06,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=200 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/200  Loss: 32.1792  Acc: 0.2650
+[WL-HIERARCHY | cora        ] Epoch 020/200  Loss: 47.5184  Acc: 0.3040
+[WL-HIERARCHY | cora        ] Epoch 030/200  Loss: 47.2229  Acc: 0.3880
+[WL-HIERARCHY | cora        ] Epoch 040/200  Loss: 47.0021  Acc: 0.4140
+[WL-HIERARCHY | cora        ] Epoch 050/200  Loss: 46.8340  Acc: 0.4570
+[WL-HIERARCHY | cora        ] Epoch 060/200  Loss: 46.6825  Acc: 0.4920
+[WL-HIERARCHY | cora        ] Epoch 070/200  Loss: 46.5494  Acc: 0.4960
+[WL-HIERARCHY | cora        ] Epoch 080/200  Loss: 46.4373  Acc: 0.4800
+[WL-HIERARCHY | cora        ] Epoch 090/200  Loss: 46.3409  Acc: 0.4560
+[WL-HIERARCHY | cora        ] Epoch 100/200  Loss: 46.2598  Acc: 0.3970
+[WL-HIERARCHY | cora        ] Epoch 110/200  Loss: 46.1874  Acc: 0.3800
+[WL-HIERARCHY | cora        ] Epoch 120/200  Loss: 46.1286  Acc: 0.3760
+[WL-HIERARCHY | cora        ] Epoch 130/200  Loss: 46.0814  Acc: 0.3740
+[WL-HIERARCHY | cora        ] Epoch 140/200  Loss: 46.0448  Acc: 0.3650
+[WL-HIERARCHY | cora        ] Epoch 150/200  Loss: 46.0177  Acc: 0.3650
+[WL-HIERARCHY | cora        ] Epoch 160/200  Loss: 45.9990  Acc: 0.3700
+[WL-HIERARCHY | cora        ] Epoch 170/200  Loss: 45.9872  Acc: 0.3610
+[WL-HIERARCHY | cora        ] Epoch 180/200  Loss: 45.9809  Acc: 0.3610
+[WL-HIERARCHY | cora        ] Epoch 190/200  Loss: 45.9783  Acc: 0.3590
+[WL-HIERARCHY | cora        ] Epoch 200/200  Loss: 45.9779  Acc: 0.3640
+[WL-HIERARCHY | CORA        ] Best Acc: 0.4960
+[BEST GLOBAL] best_accuracy=0.5790 trial=ae9397aa8f95
+
+=== [6/40] Trial 5394e5c5e5cc (wl_hierarchy/cora) ===
+{
+  "dropout": 0.1,
+  "epochs": 200,
+  "heads": 8,
+  "hidden_dim": 128,
+  "lambda_hier": 0.001,
+  "lambda_nce": 5.0,
+  "lr": 0.0001,
+  "num_layers": 3,
+  "num_negatives": 512,
+  "out_dim": 256,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.1,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 10
+}
+
+[WL-HIERARCHY] Dataset=CORA | Model=GIN | epochs=200 | device=cpu
+
+[WL-HIERARCHY | cora        ] Epoch 010/200  Loss: 154.0856  Acc: 0.2230
+[WL-HIERARCHY | cora        ] Epoch 020/200  Loss: 167.6785  Acc: 0.2410
+[WL-HIERARCHY | cora        ] Epoch 030/200  Loss: 164.5951  Acc: 0.3230
+[WL-HIERARCHY | cora        ] Epoch 040/200  Loss: 163.3918  Acc: 0.4420
+[WL-HIERARCHY | cora        ] Epoch 050/200  Loss: 162.7922  Acc: 0.5020
+[WL-HIERARCHY | cora        ] Epoch 060/200  Loss: 162.4151  Acc: 0.5160
+[WL-HIERARCHY | cora        ] Epoch 070/200  Loss: 162.1599  Acc: 0.5240
+[WL-HIERARCHY | cora        ] Epoch 080/200  Loss: 161.9735  Acc: 0.4720

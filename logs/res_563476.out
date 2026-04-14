@@ -1,0 +1,27 @@
+Start of search...
+Existing trials in results.jsonl: 10
+Planned candidates: 40
+
+=== [1/40] Trial 97cf75f1d358 (wl_hierarchy/amazon-photo) ===
+{
+  "dropout": 0.0,
+  "epochs": 400,
+  "heads": 2,
+  "hidden_dim": 128,
+  "lambda_hier": 0.01,
+  "lambda_nce": 10.0,
+  "lr": 0.0003,
+  "num_layers": 4,
+  "num_negatives": 128,
+  "out_dim": 128,
+  "scheduler": true,
+  "tau": 1.0,
+  "temperature": 0.2,
+  "warmup": 20,
+  "weight_decay": 0.0001,
+  "wl_max_iter": 5
+}
+
+[WL-HIERARCHY] Dataset=AMAZON-PHOTO | Model=GIN | epochs=400 | device=cuda
+
+Search Ended

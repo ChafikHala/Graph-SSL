@@ -1,0 +1,4 @@
+Downloading https://github.com/shchur/gnn-benchmark/raw/master/data/npz/amazon_electronics_photo.npz
+Processing...
+Done!
+[2026-04-14T19:56:03.055] error: *** JOB 561423 ON node102 CANCELLED AT 2026-04-14T19:56:03 DUE TO TIME LIMIT ***

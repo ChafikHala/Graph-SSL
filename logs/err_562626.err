@@ -1,0 +1,63 @@
+/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/cuda/__init__.py:371: UserWarning: Found GPU0 Tesla V100S-PCIE-32GB which is of compute capability (CC) 7.0.
+The following list shows the CCs this version of PyTorch was built for and the hardware CCs it supports:
+- 7.5 which supports hardware CC >=7.5,<8.0
+- 8.0 which supports hardware CC >=8.0,<9.0 except {8.7}
+- 8.6 which supports hardware CC >=8.6,<9.0 except {8.7}
+- 9.0 which supports hardware CC >=9.0,<10.0
+- 10.0 which supports hardware CC >=10.0,<11.0 except {10.1}
+- 12.0 which supports hardware CC >=12.0,<13.0
+Please follow the instructions at https://pytorch.org/get-started/locally/ to install a PyTorch release that supports one of these CUDA versions: 12.6, 12.8
+  _warn_unsupported_code(d, device_cc, code_ccs)
+Traceback (most recent call last):
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 271, in _index_select_safe
+    return src.index_select(self.node_dim, index)
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 318, in <module>
+    main()
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 285, in main
+    rec = run_trial(args.trainer, cfg, args.seed)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 209, in run_trial
+    metrics = trainer_fn(cfg)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/trainers/train_wl_hierarchy.py", line 94, in train_wl_hierarchy
+    z, logits = model(data.x, data.edge_index)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/models/wl_multilevel.py", line 19, in forward
+    z = self.encoder(x, edge_index)  # [N, d]
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/models/base_gnn.py", line 104, in forward
+    x = layer(x, edge_index)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/nn/conv/gin_conv.py", line 84, in forward
+    out = self.propagate(edge_index, x=x, size=size)
+  File "/scratch/yartaouifa-562626/torch_geometric.nn.conv.gin_conv_GINConv_propagate_5tcyncae.py", line 173, in propagate
+    kwargs = self.collect(
+  File "/scratch/yartaouifa-562626/torch_geometric.nn.conv.gin_conv_GINConv_propagate_5tcyncae.py", line 83, in collect
+    x_j = self._index_select(_x_0, edge_index_j)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 267, in _index_select
+    return self._index_select_safe(src, index)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 273, in _index_select_safe
+    if index.numel() > 0 and index.min() < 0:
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

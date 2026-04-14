@@ -1,0 +1,62 @@
+Downloading https://raw.githubusercontent.com/graphdml-uiuc-jlu/geom-gcn/f1fc0d14b3b019c562737240d06ec83b07d16a8f/new_data/squirrel/out1_node_feature_label.txt
+Traceback (most recent call last):
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 1303, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 1349, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 1298, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 1058, in _send_output
+    self.send(msg)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 996, in send
+    self.connect()
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 1468, in connect
+    super().connect()
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/http/client.py", line 962, in connect
+    self.sock = self._create_connection(
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/socket.py", line 836, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/socket.py", line 967, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 318, in <module>
+    main()
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 285, in main
+    rec = run_trial(args.trainer, cfg, args.seed)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/utils/tune.py", line 209, in run_trial
+    metrics = trainer_fn(cfg)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/trainers/train_wl_hierarchy.py", line 35, in train_wl_hierarchy
+    dataset = load_dataset(cfg.dataset)
+  File "/gpfs/workdir/yartaouifa/Graph-SSL/wl_gcl/src/data_loader/dataset.py", line 92, in load_dataset
+    dataset = WikipediaNetwork(root=root, name=name.capitalize(), geom_gcn_preprocess=True)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/datasets/wikipedia_network.py", line 65, in __init__
+    super().__init__(root, transform, pre_transform,
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py", line 81, in __init__
+    super().__init__(root, transform, pre_transform, pre_filter, log,
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/data/dataset.py", line 112, in __init__
+    self._download()
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/data/dataset.py", line 230, in _download
+    self.download()
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/datasets/wikipedia_network.py", line 99, in download
+    download_url(url, self.raw_dir)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/site-packages/torch_geometric/data/download.py", line 47, in download_url
+    data = urllib.request.urlopen(url, context=context)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/gpfs/users/yartaouifa/.conda/envs/env_gssl/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
