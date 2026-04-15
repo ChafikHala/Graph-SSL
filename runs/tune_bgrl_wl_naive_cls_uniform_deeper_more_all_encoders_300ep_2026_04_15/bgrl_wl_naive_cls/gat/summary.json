@@ -1,10 +1,10 @@
 [
   {
-    "dataset": "chameleon",
-    "display": "Chameleon",
+    "dataset": "amazon-photo",
+    "display": "Amazon-Photo",
     "model": "gat",
     "method": "bgrl_wl_naive_cls",
-    "best_accuracy": 0.6074561476707458,
-    "best_trial_id": "72ba011f71c3"
+    "best_accuracy": 0.9189542531967163,
+    "best_trial_id": "236a01987dcd"
   }
 ]
