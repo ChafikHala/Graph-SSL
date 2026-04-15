@@ -1,0 +1,17 @@
+<frozen runpy>:128: RuntimeWarning: 'wl_gcl.src.trainers.train_wl_dino' found in sys.modules after import of package 'wl_gcl.src.trainers', but prior to execution of 'wl_gcl.src.trainers.train_wl_dino'; this may result in unpredictable behaviour
+[WL-DINO] use_max_wl_depth=True -> resolved_wl_depth=3 (cfg.wl_depth=4)
+
+[WL-DINO] Dataset=AMAZON-PHOTO | Model=GCN | objective=bgrl_wl_naive_cls | distill_space=candidate | dual_view_pairs=False | wl_loss_type=align | wl_naive_pair_sampling=uniform | wl_naive_distance_beta=1.000 | adaptive_wl_balance=False | lambda_sup=0.0 | epochs=200 | device=cuda
+
+[WL-DINO] WL-cls settings | levels=1,2,3 | alpha_scheme=deeper_more | lambda_wl=0.5
+[WL-DINO | amazon-photo] Epoch 010/200 Loss: 4.3758 Distill: 0.2100 WL_cls_sum: 8.3315 WL_term: 4.1657 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0433 Acc: 0.3935 | L_wl_t1: 5.4480, L_wl_t2: 8.9016, L_wl_t3: 8.9125
+[WL-DINO | amazon-photo] Epoch 020/200 Loss: 4.2980 Distill: 0.1398 WL_cls_sum: 8.3165 WL_term: 4.1582 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0467 Acc: 0.3477 | L_wl_t1: 5.3713, L_wl_t2: 8.8987, L_wl_t3: 8.9101
+[WL-DINO | amazon-photo] Epoch 030/200 Loss: 4.2258 Distill: 0.0748 WL_cls_sum: 8.3020 WL_term: 4.1510 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0500 Acc: 0.3353 | L_wl_t1: 5.2970, L_wl_t2: 8.8958, L_wl_t3: 8.9077
+[WL-DINO | amazon-photo] Epoch 040/200 Loss: 4.1875 Distill: 0.0440 WL_cls_sum: 8.2871 WL_term: 4.1436 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0500 Acc: 0.3268 | L_wl_t1: 5.2209, L_wl_t2: 8.8929, L_wl_t3: 8.9053
+[WL-DINO | amazon-photo] Epoch 050/200 Loss: 4.1649 Distill: 0.0286 WL_cls_sum: 8.2725 WL_term: 4.1363 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0500 Acc: 0.3288 | L_wl_t1: 5.1466, L_wl_t2: 8.8900, L_wl_t3: 8.9029
+[WL-DINO | amazon-photo] Epoch 060/200 Loss: 4.1506 Distill: 0.0210 WL_cls_sum: 8.2592 WL_term: 4.1296 WL_scale: 1.00 PairCov: 0.989 Sup: 0.0000 Tt: 0.0500 Acc: 0.3294 | L_wl_t1: 5.0791, L_wl_t2: 8.8873, L_wl_t3: 8.9005
+[WL-DINO | amazon-photo] Epoch 070/200 Loss: 4.2062 Distill: 0.0825 WL_cls_sum: 8.2473 WL_term: 4.1236 WL_scale: 1.00 PairCov: 0.045 Sup: 0.0000 Tt: 0.0500 Acc: 0.3288 | L_wl_t1: 5.0195, L_wl_t2: 8.8847, L_wl_t3: 8.8982
+[WL-DINO | amazon-photo] Epoch 080/200 Loss: 4.1824 Distill: 0.0640 WL_cls_sum: 8.2367 WL_term: 4.1184 WL_scale: 1.00 PairCov: 0.045 Sup: 0.0000 Tt: 0.0500 Acc: 0.3333 | L_wl_t1: 4.9680, L_wl_t2: 8.8823, L_wl_t3: 8.8959
+[WL-DINO | amazon-photo] Epoch 090/200 Loss: 4.1718 Distill: 0.0580 WL_cls_sum: 8.2277 WL_term: 4.1138 WL_scale: 1.00 PairCov: 0.045 Sup: 0.0000 Tt: 0.0500 Acc: 0.3386 | L_wl_t1: 4.9245, L_wl_t2: 8.8800, L_wl_t3: 8.8938
+[WL-DINO | amazon-photo] Epoch 100/200 Loss: 4.1609 Distill: 0.0509 WL_cls_sum: 8.2199 WL_term: 4.1100 WL_scale: 1.00 PairCov: 0.045 Sup: 0.0000 Tt: 0.0500 Acc: 0.3458 | L_wl_t1: 4.8882, L_wl_t2: 8.8779, L_wl_t3: 8.8918
+[WL-DINO | amazon-photo] Epoch 110/200 Loss: 4.1530 Distill: 0.0463 WL_cls_sum: 8.2133 WL_term: 4.1067 WL_scale: 1.00 PairCov: 0.045 Sup: 0.0000 Tt: 0.0500 Acc: 0.3497 | L_wl_t1: 4.8586, L_wl_t2: 8.8759, L_wl_t3: 8.8898
