@@ -1,0 +1,10 @@
+[
+  {
+    "dataset": "chameleon",
+    "display": "Chameleon",
+    "model": "gat",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.6074561476707458,
+    "best_trial_id": "72ba011f71c3"
+  }
+]

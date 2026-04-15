@@ -1,0 +1,10 @@
+[
+  {
+    "dataset": "squirrel",
+    "display": "Squirrel",
+    "model": "gin",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.3400576412677765,
+    "best_trial_id": "d98882391958"
+  }
+]

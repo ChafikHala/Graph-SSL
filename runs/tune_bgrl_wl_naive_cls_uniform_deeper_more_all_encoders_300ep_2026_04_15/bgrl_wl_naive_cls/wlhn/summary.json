@@ -1,0 +1,10 @@
+[
+  {
+    "dataset": "actor",
+    "display": "Actor",
+    "model": "wlhn",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.3743421137332916,
+    "best_trial_id": "2bbb7580a4b0"
+  }
+]
