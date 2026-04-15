@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "cora",
+    "display": "Cora",
+    "model": "gcn",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.7980000376701355,
+    "best_trial_id": "3d19a1aab038"
+  },
+  {
+    "dataset": "citeseer",
+    "display": "CiteSeer",
+    "model": "gcn",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.5879999995231628,
+    "best_trial_id": "fb286e932ad4"
+  },
+  {
+    "dataset": "amazon-photo",
+    "display": "Amazon-Photo",
+    "model": "gcn",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.8960784673690796,
+    "best_trial_id": "5c107d375956"
+  },
+  {
+    "dataset": "chameleon",
+    "display": "Chameleon",
+    "model": "gcn",
+    "method": "bgrl_wl_naive_cls",
+    "best_accuracy": 0.5526315569877625,
+    "best_trial_id": "b2f4d325c5c3"
+  }
+]

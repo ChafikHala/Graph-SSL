@@ -84,6 +84,53 @@ def sample_random(space: Dict[str, List[Any]], rng: random.Random) -> Dict[str, 
     return {k: rng.choice(v) for k, v in space.items()}
 
 
+def _constrain_space_with_cli(space: Dict[str, List[Any]], args: argparse.Namespace) -> Dict[str, List[Any]]:
+    """
+    Apply CLI constraints to the sampled search space so we avoid wasting trials
+    on hyperparameters that are inactive under fixed settings.
+    """
+    out = dict(space)
+
+    # Pin sampling mode when user forces one from CLI.
+    if getattr(args, "wl_naive_pair_sampling", None) is not None:
+        out["wl_naive_pair_sampling"] = [args.wl_naive_pair_sampling]
+
+    # Pin WL-classification settings when user forces them from CLI.
+    if getattr(args, "wl_cls_levels", None) is not None:
+        out["wl_cls_levels"] = [args.wl_cls_levels]
+    if getattr(args, "wl_cls_alpha_scheme", None) is not None:
+        out["wl_cls_alpha_scheme"] = [args.wl_cls_alpha_scheme]
+
+    # If augmentations are always off, augmentation-strength params are dead.
+    if out.get("use_augmentations") == [False]:
+        out.pop("drop_edge_prob", None)
+        out.pop("feature_mask_prob", None)
+
+    # Remove inactive WL-pair hyperparameters based on fixed sampling mode.
+    sampling_vals = out.get("wl_naive_pair_sampling")
+    if sampling_vals is not None and len(sampling_vals) == 1:
+        mode = str(sampling_vals[0]).strip().lower()
+        if mode == "uniform":
+            out.pop("wl_naive_pair_temp_start", None)
+            out.pop("wl_naive_pair_temp_end", None)
+            out.pop("wl_naive_mix_start_frac", None)
+            out.pop("wl_naive_mix_end_alpha", None)
+            out.pop("wl_naive_distance_beta", None)
+        elif mode == "wl_distance":
+            out.pop("wl_naive_pair_temp_start", None)
+            out.pop("wl_naive_pair_temp_end", None)
+            out.pop("wl_naive_mix_start_frac", None)
+            out.pop("wl_naive_mix_end_alpha", None)
+        elif mode == "feature_softmax":
+            out.pop("wl_naive_mix_start_frac", None)
+            out.pop("wl_naive_mix_end_alpha", None)
+            out.pop("wl_naive_distance_beta", None)
+        elif mode == "hybrid":
+            out.pop("wl_naive_distance_beta", None)
+
+    return out
+
+
 def search_space(method: str, model: str, include_miner: bool) -> Dict[str, List[Any]]:
     method = method.lower()
     model = model.lower()
@@ -379,6 +426,7 @@ def main() -> None:
 
         completed_ids, records = load_completed_and_records(out_dir)
         space = search_space(args.method, args.model, include_miner=args.include_miner)
+        space = _constrain_space_with_cli(space, args)
         rng = random.Random(args.seed + dsi)
 
         def make_trial_cfg(params: Dict[str, Any]) -> WLDinoConfig:
